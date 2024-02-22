@@ -174,16 +174,22 @@ const handleSubmit=async (e)=>{
                     <div className='flex items-center gap-2'>
                         <input className=' p-3 border border-gray-300 rounded-lg' type="number" name="" id="regularPrice" min='50' max='1000000' required  onChange={handleChange} value={formData.regularPrice}/>
                         <div className="flex flex-col items-center">
-                        <p>Regular Price
-                        <span className='text-xs'>($/Month)</span></p>
+                        <p>Regular Price</p>
+                        <span className='text-xs'>($/Month)</span>
+                        {formData.type === 'rent' && (
+                  <span className='text-xs'>($ / month)</span>
+                )}
+                        </div>
                         </div>
                         {formData.offer&&(
                             <div className='flex items-center gap-2'>
                             <input className=' p-3 border border-gray-300 rounded-lg' type="number" name="" id="discountPrice" min='0' max='1000000' required   onChange={handleChange} value={formData.discountPrice}/>
                             <div className="flex flex-col items-center">
-                            <p>Discounted Price
-                            <span className='text-xs'>($/Month)</span></p>
-    
+                            <p>Discounted Price</p>
+                            <span className='text-xs'>($/Month)</span>
+                            {formData.type === 'rent' && (
+                            <span className='text-xs'>($ / month)</span>
+                            )}
                             </div>
                         </div>
                         )}
@@ -192,7 +198,7 @@ const handleSubmit=async (e)=>{
                         
                     </div>
                 </div>
-            </div>
+        
             <div className="flex flex-col flex-1 gap-4">
                 <p className='font-semibold'>Images:
                 <span className='font-normal text-gray-600 ml-2'>The first image will be the cover(max 6)</span>
